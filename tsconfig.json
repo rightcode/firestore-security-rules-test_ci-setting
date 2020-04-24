@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "inlineSourceMap": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

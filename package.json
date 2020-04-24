@@ -1,0 +1,27 @@
+{
+  "name": "firestore-security-rules-test_ci-setting",
+  "version": "1.0.0",
+  "description": "テスト駆動で学ぶFirestoreセキュリティルール【CI編】",
+  "scripts": {
+    "emu:start:firestore": "firebase emulators:start --only firestore",
+    "test": "jest --maxWorkers=1",
+    "test-watch": "jest --watch --maxWorkers=1",
+    "ci-test": "jest --forceExit --detectOpenHandles --maxWorkers=1"
+  },
+  "devDependencies": {
+    "@firebase/testing": "^0.15.1",
+    "@types/jest": "^24.9.1",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.8.3",
+    "firestore-test-supporter": "github:rightcode/firestore-test-supporter#v0.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rightcode/firestore-security-rules-test_ci-setting.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rightcode/firestore-security-rules-test_ci-setting/issues"
+  },
+  "homepage": "https://github.com/rightcode/firestore-security-rules-test_ci-setting#readme"
+}
