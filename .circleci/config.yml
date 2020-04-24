@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: circleci/node:lts-browsers
+    steps:
+      - checkout
+      - run:
+          name: パッケージインストール
+          command: npm install
+      - run:
+          name: firebase-toolsをインストール
+          command: npm install firebase-tools
+      - run:
+          name: Firestoreエミュレータをインストール
+          command: npm run setup:emu:firestore
+      - run:
+          name: エミュレータの起動 & テスト実行
+          command: npm run emu:start:firestore & sleep 10; npm run ci-test
+workflows:
+  test:
+    jobs:
+      - test
