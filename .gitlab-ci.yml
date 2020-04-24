@@ -1,0 +1,13 @@
+stages:
+  - test
+
+test:
+  image: circleci/node:lts-browsers
+  stage: test
+  script:
+    - npm install
+    - npm install firebase-tools
+    - npm run setup:emu:firestore
+    - npm run emu:start:firestore &
+    - sleep 10
+    - npm run ci-test

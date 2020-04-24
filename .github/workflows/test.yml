@@ -1,0 +1,38 @@
+name: test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v2
+
+      - name: Node.js ${{ matrix.node-version }} セットアップ
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: パッケージインストール
+        run: npm install
+
+      - name: firebase-toolsをインストール
+        run: npm install firebase-tools
+
+      - name: Firestoreエミュレータをインストール
+        run: npm run setup:emu:firestore
+
+      - name: エミュレータの起動
+        run: npm run emu:start:firestore &
+
+      - name: エミュレータの起動待機...
+        run: sleep 10
+
+      - name: テスト実行
+        run: npm run ci-test
