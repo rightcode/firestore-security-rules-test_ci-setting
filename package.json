@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "テスト駆動で学ぶFirestoreセキュリティルール【CI編】",
   "scripts": {
+    "setup:emu:firestore": "firebase setup:emulators:firestore",
     "emu:start:firestore": "firebase emulators:start --only firestore",
     "test": "jest --maxWorkers=1",
     "test-watch": "jest --watch --maxWorkers=1",
